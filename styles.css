@@ -4,12 +4,14 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
-/* Sidebar (Desktop) */
+/* Sidebar */
 .sidebar {
-    width: 250px;
-    background: #0047ab;
+    width: 270px;
+    background: linear-gradient(135deg, #0F2027, #203A43, #2C5364);
     color: white;
     text-align: center;
     padding: 20px;
@@ -17,37 +19,74 @@ body {
     height: 100vh;
 }
 
+/* Fix Navbar Alignment */
+.navbar {
+    background: linear-gradient(to right, #002b5b, #004e92); /* Adjust gradient for better contrast */
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; /* Ensures vertical alignment */
+    position: fixed; /* Keeps it at the top */
+    width: calc(100% - 250px); /* Adjust width to prevent overlap with sidebar */
+    left: 250px; /* Aligns properly with sidebar */
+    top: 0;
+    z-index: 1000;
+}
+
+
 .sidebar img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
 }
 
+.sidebar h1 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
 .social-icons {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 10px;
     margin-top: 15px;
 }
 
 .social-icons img {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
 }
 
 /* Main Content */
 .main-content {
-    margin-left: 250px;
-    width: calc(100% - 250px);
+    margin-left: 270px;
+    width: calc(100% - 270px);
+    transition: margin-left 0.3s ease-in-out;
+    padding-top: 60px;
 }
 
 /* Navbar */
 .navbar {
-    background: #0047ab;
+    background: linear-gradient(135deg, #0F2027, #203A43, #2C5364);
     color: white;
     padding: 15px;
     display: flex;
     justify-content: flex-end;
+    position: fixed;
+    width: calc(100% - 270px);
+    top: 0;
+    left: 270px;
+    height: 50px;
+    align-items: center;
+    z-index: 10;
+    transition: left 0.3s ease-in-out;
 }
 
 .navbar ul {
@@ -62,13 +101,11 @@ body {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s;
 }
 
-/* Mobile Menu */
-.menu-toggle {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
+.navbar a:hover {
+    color: #FFD700;
 }
 
 /* Hero Section */
@@ -83,10 +120,57 @@ body {
     justify-content: center;
 }
 
+.hero h2 {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.hero span {
+    color: #FFD700;
+}
+
 /* Sections */
 .section {
     padding: 50px;
     text-align: center;
+    background: white;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+    font-size: 24px;
+    color: #0F2027;
+}
+
+.section-content {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #203A43;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #0F2027;
+    color: white;
+    margin-top: 20px;
 }
 
 /* Responsive Design */
@@ -96,57 +180,45 @@ body {
     }
 
     .sidebar {
-        width: 100%;
-        height: auto;
-        padding: 15px;
-        position: relative;
+        width: 250px;
+        transform: translateX(-250px);
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        z-index: 10;
+        transition: transform 0.3s;
     }
 
-    .sidebar img {
-        width: 80px;
-        height: 80px;
-    }
-
-    .social-icons {
-        justify-content: center;
+    .sidebar.active {
+        transform: translateX(0);
     }
 
     .main-content {
         margin-left: 0;
         width: 100%;
+        padding-top: 60px;
     }
 
     .navbar {
-        justify-content: space-between;
-        padding: 10px 20px;
-    }
-
-    .navbar ul {
-        display: none;
-        flex-direction: column;
-        background: #0047ab;
-        position: absolute;
         width: 100%;
-        top: 60px;
         left: 0;
-        text-align: center;
     }
 
-    .navbar ul.active {
-        display: flex;
+    .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
     }
 
-    .menu-toggle {
-        display: block;
-        padding: 10px;
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s;
     }
+    .sidebar.active {
+        transform: translateX(0);
+    }
+}
 
-    .hero {
-        height: 50vh;
-        background-size: cover;
-    }
-
-    .footer{
-    
-    }
 }
