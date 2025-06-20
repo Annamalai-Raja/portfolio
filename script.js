@@ -70,4 +70,26 @@ function closePopup(event) {
     }
 }
 
+// Close popup on ESC key
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        document.querySelector(".popup-overlay")?.remove();
+        document.querySelector(".popup-card")?.remove();
+    }
+});
 
+// Typewriter effect for hero subtitle
+const heroText = "Test Automation Engineer | Java | Selenium | Appium | Playwright";
+let index = 0;
+const heroElement = document.querySelector(".hero p");
+
+function typeEffect() {
+    if (index < heroText.length) {
+        heroElement.textContent += heroText.charAt(index);
+        index++;
+        setTimeout(typeEffect, 50);
+    }
+}
+
+heroElement.textContent = "";
+typeEffect();

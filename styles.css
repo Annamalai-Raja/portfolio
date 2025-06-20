@@ -1,19 +1,29 @@
-/* General Styles */
+/* Minimalistic Dark Theme Styles */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
 }
 
 /* Sidebar */
 .sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 100px;
     width: 260px;
-    background: linear-gradient(135deg, #0F2027, #203A43, #2C5364);
+    background-color: #1f1f1f;
     color: white;
     text-align: center;
     padding: 20px;
@@ -26,13 +36,22 @@ body {
 .sidebar img {
     width: 120px;
     height: 120px;
-    border-radius: 50%;
-    margin-bottom: 10px;
+    border-radius: 16px;
+    margin: 20px auto;
+    display: block;
+    object-fit: cover;
 }
 
 .sidebar h1 {
     font-size: 20px;
     margin: 10px 0;
+    color: #04D9FF;
+}
+
+.sidebar p {
+    font-size: 14px;
+    margin: 2px 0;
+    color: #ccc;
 }
 
 .social-icons {
@@ -60,9 +79,9 @@ body {
     padding-top: 60px;
 }
 
-/* Navbar - Fixed at Top */
+/* Navbar */
 .navbar {
-    background: linear-gradient(135deg, #0F2027, #203A43, #2C5364);
+    background-color: #1f1f1f;
     color: white;
     padding: 15px;
     display: flex;
@@ -85,78 +104,97 @@ body {
 }
 
 .navbar a {
-    color: white;
+    color: #ccc;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
     transition: color 0.3s;
 }
 
 .navbar a:hover {
-    color: #FFD700;
+    color: #04D9FF;
 }
 
 /* Hero Section */
 .hero {
     text-align: center;
     padding: 100px 20px;
+    background: #181818;
+/*
     background: url('background.jpg') no-repeat center center/cover;
-    color: white;
+*/
+    color: #fff;
     height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    animation: fadeInDown 1s ease-in-out;
 }
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .hero h2 {
     font-size: 32px;
     font-weight: 700;
 }
 
 .hero span {
-    color: #FFD700;
+    color: #04D9FF;
 }
 
 /* Sections */
 .section {
-    padding: 50px;
-    text-align: center;
-    background: white;
-    margin: 20px auto;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 60px 40px;
+    background: #1a1a1a;
+    margin: 40px auto;
+    border-left: 4px solid #04D9FF;
+    border-radius: 0 12px 12px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     max-width: 900px;
+    text-align: left;
 }
 
 .section h2 {
-    font-size: 24px;
-    color: #0F2027;
+    font-size: 28px;
+    color: #04D9FF;
     margin-bottom: 20px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
 }
 
 .section-content {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding-top: 10px;
 }
 
-/* Card Hover Effect */
+/* Card */
 .card {
-    background: #203A43;
-    color: white;
-    padding: 15px 20px;
-    border-radius: 8px;
-    min-width: 120px;
+    background: #2a2a2a;
+    color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     text-align: center;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
     cursor: pointer;
 }
 
 .card:hover {
     transform: scale(1.05);
+    box-shadow: 0 0 14px #04D9FF;
 }
 
-/* Project Popup - Advanced */
+/* Popup */
 .popup-overlay {
     display: none;
     position: fixed;
@@ -164,7 +202,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(5px);
     z-index: 999;
 }
@@ -175,7 +213,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #1E3A5F;
+    background: #1e1e1e;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
@@ -195,16 +233,52 @@ body {
     margin-bottom: 15px;
 }
 
-/* Footer Fix */
+/* Resume Section */
+.resume-section {
+    background: #181818;
+    margin: 40px auto;
+    padding: 50px;
+    max-width: 900px;
+    border-left: 4px solid #04D9FF;
+    border-radius: 0 12px 12px 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 255, 100, 0.15);
+}
+
+.resume-section h2 {
+    color: #04D9FF;
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.resume-section a {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: transparent;
+    color: #04D9FF;
+    border: 2px solid #04D9FF;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+}
+
+.resume-section a:hover {
+    background-color: #04D9FF;
+    color: #121212;
+    box-shadow: 0 0 10px #04D9FF;
+}
+
+/* Footer */
 footer {
     text-align: center;
     padding: 20px;
-    background: #0F2027;
-    color: white;
+    background: #1f1f1f;
+    color: #aaa;
     margin-top: 0;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
     .sidebar {
         width: 250px;
@@ -227,15 +301,13 @@ footer {
         left: 0;
     }
 
-
     html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
+        height: 100%;
+        margin: 0;
+        padding: 0;
     }
 
     .container {
-      min-height: 100vh;
+        min-height: 100vh;
     }
-
 }
