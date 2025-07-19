@@ -90,6 +90,21 @@ function typeEffect() {
         setTimeout(typeEffect, 50);
     }
 }
+window.addEventListener('DOMContentLoaded', () => {
+    const skillLevels = document.querySelectorAll('.skill-level');
 
+    skillLevels.forEach(skill => {
+        const targetWidth = skill.getAttribute('data-skill');
+        skill.style.width = '0%';
+
+        setTimeout(() => {
+            skill.style.transition = 'width 1.5s ease-in-out';
+            skill.style.width = targetWidth;
+        }, 300);
+    });
+});
 heroElement.textContent = "";
 typeEffect();
+
+
+
