@@ -1,4 +1,4 @@
-/* Minimalistic Dark Theme Styles */
+/* Dark Theme with #04D9FF Accent */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -7,8 +7,7 @@ body {
     color: #e0e0e0;
     display: flex;
     flex-direction: row;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
 }
 
 /* Scrollbar */
@@ -84,24 +83,23 @@ body {
     width: calc(100% - 280px);
     transition: margin-left 0.3s ease-in-out;
     padding-top: 60px;
-    overflow-y: auto;
-    height: 100vh;
 }
 
 /* Navbar */
 .navbar {
     background-color: #1f1f1f;
     color: white;
-    padding: 15px;
+    padding: 0 20px;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    justify-content: space-between; /* Space between button and links */
+    align-items: center; /* Vertical alignment */
     position: fixed;
-    width: calc(100% - 260px);
     top: 0;
-    left: 0;
-    height: 50px;
+    left: 260px; /* Matches sidebar width */
+    height: 60px;
+    width: calc(100% - 260px);
     z-index: 102;
+    box-sizing: border-box;
 }
 
 .navbar ul {
@@ -128,9 +126,26 @@ body {
     border: none;
     color: #04D9FF;
     font-size: 24px;
-    margin-right: 20px;
     cursor: pointer;
     display: none;
+}
+
+/* Mobile menu active */
+#nav-links.active {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #1f1f1f;
+    padding: 10px 0;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    gap: 10px;
+    border-top: 1px solid #333;
+}
+
+#nav-links.active li {
+    text-align: center;
 }
 
 /* Hero Section */
@@ -139,7 +154,7 @@ body {
     padding: 100px 20px;
     background: #181818;
     color: #fff;
-    height: 400px;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -191,6 +206,11 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     padding-top: 10px;
+}
+
+.about-text {
+    display: block;
+    line-height: 1.8;
 }
 
 /* Card */
@@ -264,13 +284,44 @@ body {
     box-shadow: 0 0 10px #04D9FF;
 }
 
+/* Popup Styles */
+.popup-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+}
+
+.popup-card {
+    background: #1f1f1f;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 0 10px #04D9FF;
+}
+
+.popup-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #04D9FF;
+}
+
 /* Footer */
 footer {
     text-align: center;
     padding: 20px;
     background: #1f1f1f;
     color: #aaa;
-    margin-top: 0;
 }
 
 /* Responsive */
@@ -278,7 +329,6 @@ footer {
     .sidebar {
         width: 250px;
         transform: translateX(-100%);
-        transition: transform 0.3s;
     }
 
     .sidebar.active {
@@ -292,12 +342,16 @@ footer {
     }
 
     .navbar {
+        left:0;
         width: 100%;
-        left: 0;
-        justify-content: space-between;
     }
 
     .menu-toggle {
         display: block;
     }
+
+    .navbar ul {
+        display: none;
+    }
+
 }

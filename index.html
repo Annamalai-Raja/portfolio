@@ -4,34 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Annamalai R | Automation Test Engineer skilled in Java, Selenium, Appium, Playwright, and more.">
-    <meta property="og:title" content="Annamalai R |  Automation Test Engineer" />
+    <meta property="og:title" content="Annamalai R | Automation Test Engineer" />
     <meta property="og:description" content="Portfolio of Annamalai R, expert in Selenium, Java, Playwright, and API Testing." />
-    <meta property="og:image" content="profile.jpg" />
+    <meta property="og:image" content="profile.png" />
     <meta property="og:type" content="website" />
     <title>Annamalai R | Portfolio</title>
+
+    <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 <aside class="sidebar">
-    <img src="profile.png" alt="Annamalai R - Test Automation Engineer" />
+    <img src="profile.png" alt="Profile picture of Annamalai R - Test Automation Engineer" />
     <h1>Annamalai R</h1>
     <p>Automation Test Engineer</p>
     <p>📍 Bangalore, India</p>
     <nav class="social-icons">
-        <a href="mailto:annamalairaja2903@gmail.com" target="_blank">
-            <img src="icons/mail.png" alt="Email" />
+        <a href="mailto:annamalairaja2903@gmail.com" aria-label="Email Me">
+            <img src="icons/mail.png" alt="Email Icon" />
         </a>
-        <a href="https://linkedin.com/in/annamalai-raja/" target="_blank">
-            <img src="icons/linkedin.png" alt="LinkedIn" />
+        <a href="https://linkedin.com/in/annamalai-raja/" target="_blank" aria-label="LinkedIn Profile">
+            <img src="icons/linkedin.png" alt="LinkedIn Icon" />
         </a>
-        <a href="https://github.com/annamalai-raja" target="_blank">
-            <img src="icons/github.png" alt="GitHub" />
+        <a href="https://github.com/annamalai-raja" target="_blank" aria-label="GitHub Profile">
+            <img src="icons/github.png" alt="GitHub Icon" />
         </a>
     </nav>
+
     <div class="skills-sidebar">
         <h2>Technical Skills</h2>
         <div class="skill"><span>Java</span><div class="skill-bar"><div class="skill-level" data-skill="70%"></div></div></div>
@@ -43,32 +48,39 @@
         <div class="skill"><span>Rest Assured</span><div class="skill-bar"><div class="skill-level" data-skill="85%"></div></div></div>
     </div>
 </aside>
+
 <main class="main-content">
     <nav class="navbar">
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
         <ul id="nav-links">
             <li><a href="#about" aria-label="About Section">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#skills" aria-label="Skills Section">Skills</a></li>
+            <li><a href="#experience" aria-label="Experience Section">Experience</a></li>
+            <li><a href="#projects" aria-label="Projects Section">Projects</a></li>
+            <li><a href="#contact" aria-label="Contact Section">Contact</a></li>
         </ul>
     </nav>
+
     <section class="hero">
         <h2>Hello, I'm <span>Annamalai R</span></h2>
-        <p>Test Automation Engineer | Java | Selenium | Appium | Playwright</p>
+        <p></p>
     </section>
+
     <section id="about" class="section">
         <h2>About Me</h2>
-        <div class="section-content" style="display: block; line-height: 1.8;">
+        <div class="section-content about-text">
             <p><strong>Hello! I'm Annamalai R</strong>, a dedicated <strong>Test Automation Engineer</strong> with over 3 years of experience ensuring software reliability through strategic and efficient testing.</p>
-
             <p>I specialize in building scalable test automation frameworks using <strong>Java</strong> and tools like <strong>Selenium, Appium, Rest Assured, TestNG</strong>, and <strong>Cucumber</strong>. I thrive in CI/CD environments powered by <strong>Git, Jenkins, Maven, Docker</strong>, and testing platforms like <strong>TestingBot</strong>.</p>
-
             <p>Curiosity fuels my growth—I’m currently exploring <strong>JavaScript</strong> and <strong>Playwright</strong> to expand my full-stack test capabilities and future-proof my QA career.</p>
-
             <p>When I’m not automating, you’ll find me experimenting with new tech, watching deep-dive content, or exploring how to improve testing strategies with emerging tools.</p>
-
             <p><strong>Open to new opportunities</strong> where I can learn, contribute, and collaborate with passionate teams to deliver high-quality software.</p>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <h2>Skills</h2>
+        <div class="section-content">
+            <p>Java, Selenium, Appium, Playwright, TestNG, Cucumber, Rest Assured, Git, Jenkins, Maven, Docker</p>
         </div>
     </section>
 
@@ -85,6 +97,7 @@
             </article>
         </div>
     </section>
+
     <section id="projects" class="section">
         <h2>Projects</h2>
         <div class="section-content">
@@ -94,14 +107,15 @@
             <button class="card" onclick="showPopup('retail')">Total Energies Retail Apps</button>
         </div>
     </section>
+
     <section id="contact" class="section contact">
         <h2>Contact Me</h2>
         <div class="social-icons">
-            <a href="mailto:annamalairaja2903@gmail.com" target="_blank">
-                <img src="icons/mail.png" alt="Email">
+            <a href="mailto:annamalairaja2903@gmail.com" aria-label="Email Me">
+                <img src="icons/mail.png" alt="Email Icon">
             </a>
-            <a href="https://linkedin.com/in/annamalai-raja/" target="_blank">
-                <img src="icons/linkedin.png" alt="LinkedIn">
+            <a href="https://linkedin.com/in/annamalai-raja/" target="_blank" aria-label="LinkedIn Profile">
+                <img src="icons/linkedin.png" alt="LinkedIn Icon">
             </a>
         </div>
     </section>
