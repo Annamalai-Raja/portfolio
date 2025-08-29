@@ -1,12 +1,11 @@
 function toggleMenu() {
     document.getElementById("nav-links").classList.toggle("active");
 }
-
 function toggleSidebar() {
     document.querySelector(".sidebar").classList.toggle("active");
 }
 
-// Smooth scrolling for all internal links
+// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -14,10 +13,21 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         if (targetSection) {
             targetSection.scrollIntoView({ behavior: 'smooth' });
         }
+        document.getElementById("nav-links").classList.remove("active");
     });
 });
 
-// Project details object
+// Navbar scroll background change
+window.addEventListener("scroll", () => {
+    const navbar = document.querySelector(".navbar");
+    if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
+});
+
+// Project details
 const projectDetails = {
     stackbox: {
         title: "Stackbox - Warehouse Management",
@@ -37,8 +47,9 @@ const projectDetails = {
     }
 };
 
-// Function to show popup with project details
+// Show popup
 function showPopup(projectKey) {
+    if (document.querySelector(".popup-overlay")) return;
     const popupOverlay = document.createElement("div");
     popupOverlay.classList.add("popup-overlay");
     popupOverlay.addEventListener("click", closePopup);
@@ -46,65 +57,56 @@ function showPopup(projectKey) {
     const popupCard = document.createElement("div");
     popupCard.classList.add("popup-card");
 
+    const closeBtn = document.createElement("span");
+    closeBtn.classList.add("popup-close");
+    closeBtn.innerHTML = "&times;";
+    closeBtn.addEventListener("click", closePopup);
+
     const popupTitle = document.createElement("h2");
     popupTitle.innerText = projectDetails[projectKey].title;
 
     const popupDescription = document.createElement("p");
     popupDescription.innerText = projectDetails[projectKey].description;
 
+    popupCard.appendChild(closeBtn);
     popupCard.appendChild(popupTitle);
     popupCard.appendChild(popupDescription);
 
     document.body.appendChild(popupOverlay);
     document.body.appendChild(popupCard);
-
-    popupOverlay.style.display = "block";
-    popupCard.style.display = "block";
 }
-
-// Function to close the popup when clicking outside
-function closePopup(event) {
-    if (event.target.classList.contains("popup-overlay")) {
-        document.querySelector(".popup-overlay")?.remove();
-        document.querySelector(".popup-card")?.remove();
-    }
+function closePopup() {
+    document.querySelector(".popup-overlay")?.remove();
+    document.querySelector(".popup-card")?.remove();
 }
-
-// Close popup on ESC key
 document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-        document.querySelector(".popup-overlay")?.remove();
-        document.querySelector(".popup-card")?.remove();
-    }
+    if (e.key === "Escape") closePopup();
 });
 
-// Typewriter effect for hero subtitle
-const heroText = "Test Automation Engineer | Java | Selenium | Appium | Playwright";
-let index = 0;
-const heroElement = document.querySelector(".hero p");
-
-function typeEffect() {
-    if (index < heroText.length) {
-        heroElement.textContent += heroText.charAt(index);
-        index++;
-        setTimeout(typeEffect, 50);
-    }
-}
+// Typewriter effect
 window.addEventListener('DOMContentLoaded', () => {
-    const skillLevels = document.querySelectorAll('.skill-level');
+    const heroText = "Test Automation Engineer | Java | Selenium | Appium | Playwright";
+    let index = 0;
+    const heroElement = document.querySelector(".hero-role");
+    heroElement.textContent = "";
 
+    function typeEffect() {
+        if (index < heroText.length) {
+            heroElement.textContent += heroText.charAt(index);
+            index++;
+            setTimeout(typeEffect, 50);
+        }
+    }
+    typeEffect();
+
+    // Animate skill bars
+    const skillLevels = document.querySelectorAll('.skill-level');
     skillLevels.forEach(skill => {
         const targetWidth = skill.getAttribute('data-skill');
         skill.style.width = '0%';
-
         setTimeout(() => {
             skill.style.transition = 'width 1.5s ease-in-out';
             skill.style.width = targetWidth;
         }, 300);
     });
 });
-heroElement.textContent = "";
-typeEffect();
-
-
-
