@@ -1,12 +1,11 @@
 function toggleMenu() {
     document.getElementById("nav-links").classList.toggle("active");
 }
-
 function toggleSidebar() {
     document.querySelector(".sidebar").classList.toggle("active");
 }
 
-// Smooth scrolling for internal links
+// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -14,8 +13,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         if (targetSection) {
             targetSection.scrollIntoView({ behavior: 'smooth' });
         }
-        document.getElementById("nav-links").classList.remove("active"); // Close menu after click
+        document.getElementById("nav-links").classList.remove("active");
     });
+});
+
+// Navbar scroll background change
+window.addEventListener("scroll", () => {
+    const navbar = document.querySelector(".navbar");
+    if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
 });
 
 // Project details
@@ -40,8 +49,7 @@ const projectDetails = {
 
 // Show popup
 function showPopup(projectKey) {
-    if (document.querySelector(".popup-overlay")) return; // Prevent multiple popups
-
+    if (document.querySelector(".popup-overlay")) return;
     const popupOverlay = document.createElement("div");
     popupOverlay.classList.add("popup-overlay");
     popupOverlay.addEventListener("click", closePopup);
@@ -67,26 +75,19 @@ function showPopup(projectKey) {
     document.body.appendChild(popupOverlay);
     document.body.appendChild(popupCard);
 }
-
-// Close popup
 function closePopup() {
     document.querySelector(".popup-overlay")?.remove();
     document.querySelector(".popup-card")?.remove();
 }
-
-// Close popup on ESC
 document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-        closePopup();
-    }
+    if (e.key === "Escape") closePopup();
 });
 
 // Typewriter effect
 window.addEventListener('DOMContentLoaded', () => {
     const heroText = "Test Automation Engineer | Java | Selenium | Appium | Playwright";
     let index = 0;
-    const heroElement = document.querySelector(".hero p");
-
+    const heroElement = document.querySelector(".hero-role");
     heroElement.textContent = "";
 
     function typeEffect() {
@@ -98,7 +99,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     typeEffect();
 
-    // Animate skills
+    // Animate skill bars
     const skillLevels = document.querySelectorAll('.skill-level');
     skillLevels.forEach(skill => {
         const targetWidth = skill.getAttribute('data-skill');

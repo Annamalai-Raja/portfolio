@@ -10,7 +10,6 @@
     <meta property="og:type" content="website" />
     <title>Annamalai R | Portfolio</title>
 
-    <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 
@@ -50,6 +49,7 @@
 </aside>
 
 <main class="main-content">
+    <!-- Navbar -->
     <nav class="navbar">
         <button class="menu-toggle" onclick="toggleMenu()">☰</button>
         <ul id="nav-links">
@@ -61,53 +61,116 @@
         </ul>
     </nav>
 
+    <!-- Hero -->
     <section class="hero">
-        <h2>Hello, I'm <span>Annamalai R</span></h2>
-        <p></p>
-    </section>
-
-    <section id="about" class="section">
-        <h2>About Me</h2>
-        <div class="section-content about-text">
-            <p><strong>Hello! I'm Annamalai R</strong>, a dedicated <strong>Test Automation Engineer</strong> with over 3 years of experience ensuring software reliability through strategic and efficient testing.</p>
-            <p>I specialize in building scalable test automation frameworks using <strong>Java</strong> and tools like <strong>Selenium, Appium, Rest Assured, TestNG</strong>, and <strong>Cucumber</strong>. I thrive in CI/CD environments powered by <strong>Git, Jenkins, Maven, Docker</strong>, and testing platforms like <strong>TestingBot</strong>.</p>
-            <p>Curiosity fuels my growth—I’m currently exploring <strong>JavaScript</strong> and <strong>Playwright</strong> to expand my full-stack test capabilities and future-proof my QA career.</p>
-            <p>When I’m not automating, you’ll find me experimenting with new tech, watching deep-dive content, or exploring how to improve testing strategies with emerging tools.</p>
-            <p><strong>Open to new opportunities</strong> where I can learn, contribute, and collaborate with passionate teams to deliver high-quality software.</p>
+        <h1>Hello, I'm <span>Annamalai R</span></h1>
+        <p class="hero-role"></p>
+        <div class="hero-buttons">
+            <a href="#projects" class="btn-primary">View My Work</a>
+            <a href="#contact" class="btn-outline">Contact Me</a>
         </div>
     </section>
 
+    <!-- About -->
+    <section id="about" class="section about-section">
+        <div class="about-left">
+            <h2>About Me</h2>
+            <p><strong>Hello! I'm Annamalai R</strong>, a passionate <strong>Automation Test Engineer</strong> with 3+ years of experience delivering high-quality software through robust, scalable test automation.</p>
+            <ul>
+                <li>Built automation frameworks that reduced regression testing time by <strong>60%</strong>.</li>
+                <li>Integrated CI/CD pipelines enabling <strong>zero-touch deployments</strong> and cross-browser testing in under 10 minutes.</li>
+                <li>Skilled in <strong>Java, Selenium, Appium, Playwright, TestNG, Cucumber</strong> with API testing expertise using Rest Assured.</li>
+                <li>Hands-on with <strong>Git, Jenkins, Maven, Docker</strong> for continuous delivery.</li>
+                <li>Currently expanding my test coverage capabilities with <strong>JavaScript & Playwright</strong>.</li>
+            </ul>
+            <p><strong>Open to opportunities</strong> where I can contribute to building robust QA processes and mentor teams in test automation best practices.</p>
+        </div>
+        <div class="about-right">
+            <img src="profile.png" alt="Annamalai R" class="about-image">
+            <div class="tech-badges">
+                <span>Java</span><span>Selenium</span><span>Appium</span>
+                <span>Playwright</span><span>TestNG</span><span>Cucumber</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
     <section id="skills" class="section">
         <h2>Skills</h2>
         <div class="section-content">
-            <p>Java, Selenium, Appium, Playwright, TestNG, Cucumber, Rest Assured, Git, Jenkins, Maven, Docker</p>
+            <div>
+                <h4>Automation Tools</h4>
+                <p>Selenium, Appium, Playwright</p>
+            </div>
+            <div>
+                <h4>Languages</h4>
+                <p>Java, JavaScript</p>
+            </div>
+            <div>
+                <h4>Frameworks</h4>
+                <p>TestNG, Cucumber</p>
+            </div>
+            <div>
+                <h4>API Testing</h4>
+                <p>Rest Assured</p>
+            </div>
+            <div>
+                <h4>DevOps/CI-CD</h4>
+                <p>Git, Jenkins, Maven, Docker</p>
+            </div>
         </div>
     </section>
 
+    <!-- Experience -->
     <section id="experience" class="section">
         <h2>Professional Experience</h2>
         <div class="section-content">
             <article class="card">
                 <h3>Test Automation Engineer</h3>
-                <p>TestUnity, Bangalore | Aug 2024 – Present</p>
+                <p><strong>TestUnity, Bangalore | Aug 2024 – Present</strong></p>
+                <ul>
+                    <li>Developing Playwright-based end-to-end test suites with <strong>40% lower flakiness</strong> than prior frameworks.</li>
+                    <li>Implemented reusable page object models improving test maintainability by <strong>30%</strong>.</li>
+                    <li>Collaborating with developers to embed test automation into CI/CD workflows.</li>
+                </ul>
             </article>
+
             <article class="card">
                 <h3>Test Engineer</h3>
-                <p>Infosys Limited, Bangalore | Feb 2022 – Feb 2024</p>
+                <p><strong>Infosys Limited, Bangalore | Feb 2022 – Feb 2024</strong></p>
+                <ul>
+                    <li>Designed Selenium & TestNG-based automation covering <strong>200+ test cases</strong> across multiple browsers.</li>
+                    <li>Built Rest Assured API test suites achieving <strong>95% coverage</strong> on core APIs.</li>
+                    <li>Reduced regression testing cycle from 4 days to 1.5 days through optimized scripts.</li>
+                </ul>
             </article>
         </div>
     </section>
 
+    <!-- Projects -->
     <section id="projects" class="section">
         <h2>Projects</h2>
         <div class="section-content">
-            <button class="card" onclick="showPopup('stackbox')">Stackbox - Warehouse Management</button>
-            <button class="card" onclick="showPopup('travel')">Customer Travel Solutions</button>
-            <button class="card" onclick="showPopup('tractor')">Tractor Supply Chain</button>
-            <button class="card" onclick="showPopup('retail')">Total Energies Retail Apps</button>
+            <div class="card" onclick="showPopup('stackbox')">
+                <h3>Stackbox – Warehouse Management</h3>
+                <p>Automation for 150+ workflows ensuring 98% reliability in staging & production.</p>
+            </div>
+            <div class="card" onclick="showPopup('travel')">
+                <h3>Customer Travel Solutions</h3>
+                <p>End-to-end automation of booking flows, reducing manual test effort by 50%.</p>
+            </div>
+            <div class="card" onclick="showPopup('tractor')">
+                <h3>Tractor Supply Chain</h3>
+                <p>Test suite covering procurement to delivery with <strong>zero post-release defects</strong>.</p>
+            </div>
+            <div class="card" onclick="showPopup('retail')">
+                <h3>Total Energies Retail Apps</h3>
+                <p>Retail platform automation across mobile & web with 90% faster regression cycles.</p>
+            </div>
         </div>
     </section>
 
+    <!-- Contact -->
     <section id="contact" class="section contact">
         <h2>Contact Me</h2>
         <div class="social-icons">
@@ -120,8 +183,9 @@
         </div>
     </section>
 
+    <!-- Minimal Resume -->
     <section class="resume-section">
-        <h2>📄 Want My Resume?</h2>
+        <h2>📄 Want My Resume? (Updated Aug 2025)</h2>
         <a href="resume.pdf" download>Download Resume</a>
     </section>
 
